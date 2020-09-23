@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{85F0C7CB-F0C0-47BE-9F9B-25A1F9B502EB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>kakashi</RootNamespace>
+    <AssemblyName>kakashi</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpf.Core.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Common\Log\LogHelper.cs" />
+    <Compile Include="Common\Message\MessageDxUtil.cs" />
+    <Compile Include="Common\Resource\MainMessage.cs" />
+    <Compile Include="Views\AccessSystem\LoginWindown.xaml.cs">
+      <DependentUpon>LoginWindown.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\AccessSystem\LoginWindown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Add.png" />
+    <Resource Include="Images\add_user.png" />
+    <Resource Include="Images\app.ico" />
+    <Resource Include="Images\ChangePassword.png" />
+    <Resource Include="Images\ChangeUser.png" />
+    <Resource Include="Images\Delete.png" />
+    <Resource Include="Images\Edit.png" />
+    <Resource Include="Images\emojis\no.png" />
+    <Resource Include="Images\emojis\yes.png" />
+    <Resource Include="Images\Exit.png" />
+    <Resource Include="Images\iOpenWorksLogo.png" />
+    <Resource Include="Images\Login.PNG" />
+    <Resource Include="Images\LoginLogo.png" />
+    <Resource Include="Images\ModulePng\Down_16x16.png" />
+    <Resource Include="Images\ModulePng\Down_32x32.png" />
+    <Resource Include="Images\ModulePng\Right_16x16.png" />
+    <Resource Include="Images\ModulePng\Right_32x32.png" />
+    <Resource Include="Images\NavBarPng\Add_16x16.png" />
+    <Resource Include="Images\NavBarPng\Add_32x32.png" />
+    <Resource Include="Images\NavBarPng\CalculateNow_16x16.png" />
+    <Resource Include="Images\NavBarPng\CalculateNow_32x32.png" />
+    <Resource Include="Images\NavBarPng\ChangeChartSeriesType_16x16.png" />
+    <Resource Include="Images\NavBarPng\ChangeChartSeriesType_32x32.png" />
+    <Resource Include="Images\NavBarPng\Currency2_16x16.png" />
+    <Resource Include="Images\NavBarPng\Currency2_32x32.png" />
+    <Resource Include="Images\NavBarPng\Customer_16x16.png" />
+    <Resource Include="Images\NavBarPng\Customer_32x32.png" />
+    <Resource Include="Images\NavBarPng\Database_16x16.png" />
+    <Resource Include="Images\NavBarPng\Database_32x32.png" />
+    <Resource Include="Images\NavBarPng\ExportToCSV_16x16.png" />
+    <Resource Include="Images\NavBarPng\ExportToCSV_32x32.png" />
+    <Resource Include="Images\NavBarPng\ExportToPDF_16x16.png" />
+    <Resource Include="Images\NavBarPng\ExportToPDF_32x32.png" />
+    <Resource Include="Images\NavBarPng\ExportToXLS_16x16.png" />
+    <Resource Include="Images\NavBarPng\ExportToXLS_32x32.png" />
+    <Resource Include="Images\NavBarPng\InsertHeader_16x16.png" />
+    <Resource Include="Images\NavBarPng\InsertHeader_32x32.png" />
+    <Resource Include="Images\NavBarPng\Mail_16x16.png" />
+    <Resource Include="Images\NavBarPng\Mail_32x32.png" />
+    <Resource Include="Images\NavBarPng\TextBox_16x16.png" />
+    <Resource Include="Images\NavBarPng\TextBox_32x32.png" />
+    <Resource Include="Images\NavBarPng\Zoom_16x16.png" />
+    <Resource Include="Images\NavBarPng\Zoom_32x32.png" />
+    <Resource Include="Images\no.png" />
+    <Resource Include="Images\Permission.png" />
+    <Resource Include="Images\redo.png" />
+    <Resource Include="Images\ReInstaller.png" />
+    <Resource Include="Images\Role.png" />
+    <Resource Include="Images\save.png" />
+    <Resource Include="Images\undo.png" />
+    <Resource Include="Images\User.png" />
+    <Resource Include="Images\User1.png" />
+    <Resource Include="Images\User2.png" />
+    <Resource Include="Images\User3.png" />
+    <Resource Include="Images\yes.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
