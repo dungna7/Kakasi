@@ -15,6 +15,15 @@ namespace kakashi.Views
         public LoginWindown()
         {
             InitializeComponent();
+            InitLoginCobobox();
+        }
+        public void InitLoginCobobox()
+        {
+            UserComboBox.ItemsSource = Settings.Default.LastLoginUser;
+            if (Settings.Default.LastLoginUser != null)
+            {
+                UserComboBox.SelectedIndex = 0;
+            }
         }
 
         private void YesBtnClick(object sender, RoutedEventArgs e)
@@ -51,7 +60,7 @@ namespace kakashi.Views
 
             userList = userList.Distinct().ToList();
 
-            //Settings.Default.LastLoginUser = userList.ToArray();
+            Settings.Default.LastLoginUser = userList.ToArray();
             Settings.Default.Save();
         }
     }

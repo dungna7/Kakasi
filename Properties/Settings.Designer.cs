@@ -26,12 +26,15 @@ namespace kakashi.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string LastLoginUser {
-            get {
-                return ((string)(this["LastLoginUser"]));
+        public string[] LastLoginUser
+        {
+            get
+            {
+                return ((string[])(this["LastLoginUser"]));
             }
-            set {
-                this["LastLoginUser"] = value;
+            set
+            {
+                this["LastLoginUser"] = (string[])value;
             }
         }
     }
